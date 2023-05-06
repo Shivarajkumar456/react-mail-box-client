@@ -6,17 +6,19 @@ import ForgotPassword from './Components/SignUp/ForgotPassword';
 import Header from './Components/Header/Header';
 import Home from './Components/Pages/Home';
 import MailHome from './Components/Mail/MailHome';
+import Inbox from './Components/Mail/Inbox';
 
 function App() {
   const isLoggedIn = useSelector(state=> state.auth.isLoggedin);
   return (
     <Fragment>
       <Header />
-      {isLoggedIn && <Home />}
       <Routes>
         <Route path='/' element={<Login />} exact/>
         <Route path='/forgotpassword' element={<ForgotPassword />} exact/>
-        {isLoggedIn && <Route path='/home' element={<MailHome />} exact/>}
+        <Route path='/home' element={<Home />} exact/>
+        {isLoggedIn && <Route path='/compose' element={<MailHome />} exact/>}
+        {isLoggedIn && <Route path='/inbox' element={<Inbox />} exact/>}
       </Routes>
     </Fragment>
   )

@@ -16,13 +16,13 @@ const MailHome = ()=> {
         setEditorState(editorState);
     }
     const email = localStorage.getItem('email');
-    const senderEmail = email.replace('@','').replace('.','')
+    const senderEmail = email.replace(/[@.]/g, '')
 
      const sendEmail = async (event)=>{
       event.preventDefault();
        console.log("compose button clicked");
        const toMail = to.current.value
-       const recieverMail = toMail.replace('@','').replace('.','');
+       const recieverMail = toMail.replace(/[@.]/g, '');
        const mailData = {
          from : localStorage.getItem('email'),
          to : toMail,
@@ -66,9 +66,9 @@ const MailHome = ()=> {
         <div className='containers'>
           <div className='sidebar'>
           <div className='sideContent'>
-          <NavLink to="/home" className='none' activeClassName='active'> <div className='content'>Compose</div></NavLink>
-            <NavLink to="/inbox" className='none' activeClassName='active'><div className='content'>Inbox</div></NavLink>
-           <NavLink to="/sent" className='none' activeClassName='active'> <div className='content'>Sent</div></NavLink>
+          <NavLink to="/compose" className='none' activeClassName='active'> <div className='content'>Compose</div></NavLink>
+          <NavLink to="/inbox" className='none' activeClassName='active'><div className='content'>Inbox</div></NavLink>
+          <NavLink to="/sent" className='none' activeClassName='active'> <div className='content'>Sent</div></NavLink>
            </div>
           </div>
   

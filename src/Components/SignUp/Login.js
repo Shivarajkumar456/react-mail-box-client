@@ -56,7 +56,7 @@ const Login = () => {
           token: data.idToken,
           email: emailInputRef.current.value
         }))
-          navigate('/home');
+          navigate('/compose');
       })
       .catch((err) => {
         alert(err.message);

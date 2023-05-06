@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialMailState = {
- mails: []
+ mailData: []
 };
 
 const mailSlice = createSlice({
@@ -9,8 +9,11 @@ const mailSlice = createSlice({
   initialState: initialMailState,
   reducers: {
     add(state, action) {
-        state.mails = [action.payload,...state.mails]
-    }
+        state.mailData = [action.payload,...state.mailData]
+    },
+    replaceMails(state,action){
+        state.mailData = action.payload.mailData;
+    },
   },
 });
 

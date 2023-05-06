@@ -22,6 +22,7 @@ const Header = ()=> {
         </div>
         <ul>
           <li><NavLink to='/home' className='NavLink'>Home</NavLink></li>
+          {isLoggedIn && <li><NavLink to='/compose' className='NavLink'>Mail</NavLink></li>}
           <li>{isLoggedIn?<button onClick={logoutHandler}>Logout</button>:<NavLink to='/' className='NavLink'>Login</NavLink>}</li>
         </ul>
       </nav>
