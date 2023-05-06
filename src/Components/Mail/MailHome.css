@@ -1,0 +1,109 @@
+.containers {
+    display: flex;
+    color: #012733;
+  }
+  .sidebar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #a1d4e9;
+    min-width: 100px;
+    box-sizing: border-box;
+  }
+  .sideContent{
+    margin-top: 50px;
+  }
+  .content {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* border-bottom: 2px solid #02171f; */
+    cursor: pointer;
+    color: #02171f;
+  }
+  .content:hover {
+    background-color: #c6dfe9;
+    border-radius: 50px;
+  }
+  .active {
+    box-sizing: border-box; 
+    color: #0799d3 !important;
+    display: block;
+  }
+  .none {
+    text-decoration: none;
+  }
+  .form {
+    width: 70%;
+    padding: 2rem;
+  }
+  .form label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+  .form input {
+    width: 100%;
+    border-radius: 10px;
+    padding: 0.5rem;
+    border: 1px solid grey;
+    margin-bottom: 1rem;
+  }
+
+  .mailsContainer{
+    width: 100%;
+    padding: 0.2rem;
+  }
+  .unread{
+    color: rgb(20, 140, 220) !important;
+    font-size: 0.8rem;
+  }
+  .bold{
+    font-weight: bolder;
+  }
+
+  .editor-class{
+    padding: 6px 5px 0;
+    border-radius: 2px;
+    border: 1px solid #F1F1F1;
+    display: flex;
+    justify-content: flex-start;
+    background: white;
+    flex-wrap: wrap;
+    font-size: 15px;
+    margin-bottom: 5px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+  
+.footer {
+  display: flex;
+}
+
+.editing{
+  margin-top: 10px;
+  height: 250px;
+  width: 900px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.sendbtn{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.sendButton {
+  width: 250px;
+  margin: 1px;
+  padding: 8px;
+  font-size: 1.2rem;
+  background-image: linear-gradient(#033747, #012733);
+  color: white;
+}
+
+.sendButton:hover{
+  background-image: linear-gradient(#084052, #064052);
+}

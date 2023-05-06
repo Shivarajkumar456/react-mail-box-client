@@ -1,0 +1,22 @@
+.main{
+    padding-top: 75px;
+}
+.home-container {
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #628d9b;
+    padding: 1rem;
+    color: #02171f;
+    padding: 2rem;
+    border-bottom: 3px solid #02171f;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    align-items: center;
+    font-weight: bold;
+}
+.home-container p {
+    font-size: 1.5rem;
+    font-style: italic; 
+}

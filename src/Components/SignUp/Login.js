@@ -10,12 +10,12 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../../store/Auth";
 
 const Login = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const emailInputRef=useRef();
   const passwordInputRef=useRef();
   const confirmPasswordRef = useRef();
-  const[isLogin ,setIsLogin] = useState(true);
+  const [isLogin ,setIsLogin] = useState(true);
   
   const submitHandler = (event)=>{
       event.preventDefault();
@@ -68,6 +68,7 @@ const Login = () => {
 
     return (
         <Fragment>
+        <div className='loginMain'>
             <img className="wave" src={wave} alt='wave'/>
             <div className="container">
                 <div className="img">
@@ -109,6 +110,7 @@ const Login = () => {
                 </div>
                 </div>
             </div>
+          </div>
         </Fragment>
     )
 }

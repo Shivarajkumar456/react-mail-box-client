@@ -35,6 +35,7 @@ const ForgotPassword = () => {
         }
     }
     return (
+        <div className='mainNav'>
         <div className='forgot'>
         <div className="signup">
           <form onSubmit={submitHandler}>
@@ -46,6 +47,7 @@ const ForgotPassword = () => {
           </form>
           <div className='link'>
           <NavLink to='/' style={{ textDecoration: 'none' }}>Click here to SignIn/SignUp</NavLink>
+          </div>
           </div>
           </div>
         </div>
