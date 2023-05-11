@@ -1,9 +1,9 @@
 import { Fragment, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Editor } from 'react-draft-wysiwyg';
 import { EditorState } from 'draft-js';
 import { useDispatch } from 'react-redux';
 import { mailActions } from '../../store/Mail';
+import Sidebar from '../Header/Sidebar';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import './MailHome.css';
 
@@ -64,13 +64,7 @@ const MailHome = ()=> {
     return (
         <Fragment>
         <div className='containers'>
-          <div className='sidebar'>
-          <div className='sideContent'>
-          <NavLink to="/compose" className='none' activeClassName='active'> <div className='content'>Compose</div></NavLink>
-          <NavLink to="/inbox" className='none' activeClassName='active'><div className='content'>Inbox</div></NavLink>
-          <NavLink to="/sent" className='none' activeClassName='active'> <div className='content'>Sent</div></NavLink>
-           </div>
-          </div>
+          <Sidebar />
   
           <form className='form' onSubmit={sendEmail}>
             <div>

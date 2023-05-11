@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
 import './MailData.css'
 
 const MailData = (props) => {
@@ -12,6 +13,7 @@ const deleteMailHandler = (event) => {
     console.log('inbox delete mail clicked');
 }
   return <>
+  <NavLink to={`/inbox/${props.mail.id}`}>
   <div className='list'>
     <div className='symbolTo' onClick={readMessageHandler}>
       {!props.isRead && <div className='circle' />}
@@ -22,6 +24,7 @@ const deleteMailHandler = (event) => {
       <button onClick={deleteMailHandler}>Delete</button>
     </div>
   </div>
+  </NavLink>
 </>
 }
 

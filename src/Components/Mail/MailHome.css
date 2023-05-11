@@ -2,38 +2,6 @@
     display: flex;
     color: #012733;
   }
-  .sidebar {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    
-    border-right: 1px solid #a1d4e9;
-    min-width: 100px;
-    box-sizing: border-box;
-  }
-  .sideContent{
-    margin-top: 50px;
-  }
-  .content {
-    padding: 0.5rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    /* border-bottom: 2px solid #02171f; */
-    cursor: pointer;
-    color: #02171f;
-  }
-  .content:hover {
-    background-color: #c6dfe9;
-    border-radius: 50px;
-  }
-  .active {
-    box-sizing: border-box; 
-    color: #0799d3 !important;
-    display: block;
-  }
-  .none {
-    text-decoration: none;
-  }
   .form {
     width: 80%;
     padding: 2rem;
