@@ -5,13 +5,13 @@ import MailData from "./MailData";
 import './Inbox.css';
 import Sidebar from "../Header/Sidebar";
 
-const Inbox = ()=> {
+const Sent = ()=> {
     const mails  = useSelector(state => state.mail.mailData);
     const email = useSelector(state=> state.auth.email);
     const changed = useSelector(state=>state.mail.changed);
     const replaceEmail = email.replace(/[@ .]/g, '');
     const dispatch = useDispatch();
-    const inboxMails = mails.filter(mail=>mail.to === email );
+    const sentMails = mails.filter(mail=>mail.from === email );
 
     useEffect(() => {
         let newdata = []
@@ -55,8 +55,8 @@ const Inbox = ()=> {
       fetchMails()
        }, [dispatch,replaceEmail, changed, email]);
 
-       const mailItem = inboxMails.map(mail=>(
-         <MailData key={mail.id} mail={mail} isRead={mail.isRead} toFrom='from' />
+       const mailItem = sentMails.map(mail=>(
+         <MailData key={mail.id} mail={mail} isRead={mail.isRead} toFrom='to' />
     ));
     
     return (
@@ -64,11 +64,14 @@ const Inbox = ()=> {
     <div className='containers'>
       <Sidebar />
       <div className = 'inbox'>
-        {mailItem.length>0?mailItem:<h4>No Inbox Mails</h4>}
+      <div className='heading'>
+            <h1>Sent Box</h1>
+        </div>
+        {mailItem.length>0?mailItem:<h4>No Sent Mails</h4>}
       </div>
     </div>
   </Fragment>
 )
     
 }
-export default Inbox;
+export default Sent;

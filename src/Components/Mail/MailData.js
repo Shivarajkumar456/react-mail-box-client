@@ -3,29 +3,56 @@ import { NavLink } from 'react-router-dom';
 import './MailData.css'
 
 const MailData = (props) => {
-const readMessageHandler = (event)=>{
-    event.preventDefault();
-    console.log('inbox mail clicked');
+  const email = localStorage.getItem("email");
+  const mailid = email.replace(/[@.]/g, '');
+  const fromName = props.mail.from.split('@')[0];
+  const toName = props.mail.to.split('@')[0];
+
+
+const deleteMailHandler = async () => {
+    console.log('inbox delete mail clicked');
+    try {
+      const res = await fetch(`https://reactmailbox-7a108-default-rtdb.firebaseio.com/${mailid}/${props.mail.id}.json`, {
+          method: "Delete",
+      });
+      const data = await res.json();
+  } catch (error) {
+      console.log(error.message);
+  }
 }
 
-const deleteMailHandler = (event) => {
-    event.preventDefault();
-    console.log('inbox delete mail clicked');
-}
-  return <>
-  <NavLink to={`/inbox/${props.mail.id}`}>
-  <div className='list'>
-    <div className='symbolTo' onClick={readMessageHandler}>
-      {!props.isRead && <div className='circle' />}
-      <div className='to'>{props.mail.from}</div>
-    </div>
+if(props.toFrom === 'from'){
+  return <><div className='heading'>
+  <h1>Inbox</h1>
+</div>
+<div className='list'>
+<NavLink to={`/inbox/${props.mail.id}`}>
+  <div className='symbolTo'>
+    {!props.isRead && <div className='circle' />}
+    <div className='to'>From: {fromName}</div>
     <div className='subject'>{props.mail.title}</div>
+  </div>
+  </NavLink>
+  <div className='delete'>
+    <button onClick={deleteMailHandler}>Delete</button>
+  </div>
+</div></>
+}else if(props.toFrom === 'to') {
+  return <>
+  <div className='list'>
+  <NavLink to={`/sent/${props.mail.id}`}>
+    <div className='symbolTo'>
+      <div className='to'>To: {toName}</div>
+      <div className='subject'>{props.mail.title}</div>
+    </div>
+    </NavLink>
     <div className='delete'>
       <button onClick={deleteMailHandler}>Delete</button>
     </div>
-  </div>
-  </NavLink>
-</>
+  </div></>
+}else {
+  return <h4>Not Valid Address!</h4>
+}
 }
 
 export default MailData;

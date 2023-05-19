@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialMailState = {
- mailData: [], count:0, changed: false
+ mailData: [], count:0, changed: false, currentMail:[]
 };
 
 const mailSlice = createSlice({
@@ -18,6 +18,7 @@ const mailSlice = createSlice({
     },
     editMail(state,action){
       state.changed = !state.changed;
+      state.currentMail = action.payload.pageMail;
     }
   },
 });

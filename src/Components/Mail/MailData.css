@@ -1,5 +1,11 @@
+.heading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .list {
     display: flex;
+    flex-direction: row;
     background-color: rgb(253, 251, 251);
     border-bottom: 1px solid gray;
     padding: 5px;
@@ -9,15 +15,21 @@
     background-color: rgb(200, 217, 230);
     cursor: pointer;
   }
+  .symbolTo {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
   .to {
-    width: 35%;
-    margin-left: 5px;
+    padding-right: 40px;
+    padding-left: 10px;
+    width: fit-content;
   }
   .subject {
-    margin-left: 10%;
-    width: 35%;
+    width: 150px;
   }
   .circle {
+    display: inline;
     width: 7px;
     height: 7px;
     border-radius: 50%;
@@ -30,6 +42,4 @@
     width: 100px;
     border-radius: 25px;
   }
-  .symbolTo {
-    display: flex;
-  }
+  

@@ -7,6 +7,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Pages/Home';
 import MailHome from './Components/Mail/MailHome';
 import Inbox from './Components/Mail/Inbox';
+import Sent from './Components/Mail/Sent';
 import MailContent from './Components/Mail/MailContent';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/home' element={<Home />} exact/>
         {isLoggedIn && <Route path='/compose' element={<MailHome />} exact/>}
         {isLoggedIn && <Route path='/inbox' element={<Inbox />} exact/>}
+        {isLoggedIn && <Route path='/sent' element={<Sent />} exact/>}
         <Route path='/inbox/:id' element={<MailContent />} />
       </Routes>
     </Fragment>
