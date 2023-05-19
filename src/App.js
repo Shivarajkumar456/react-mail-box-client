@@ -9,6 +9,7 @@ import MailHome from './Components/Mail/MailHome';
 import Inbox from './Components/Mail/Inbox';
 import Sent from './Components/Mail/Sent';
 import MailContent from './Components/Mail/MailContent';
+import SentContent from './Components/Mail/SentContent';
 
 function App() {
   const isLoggedIn = useSelector(state=> state.auth.isLoggedin);
@@ -23,6 +24,7 @@ function App() {
         {isLoggedIn && <Route path='/inbox' element={<Inbox />} exact/>}
         {isLoggedIn && <Route path='/sent' element={<Sent />} exact/>}
         <Route path='/inbox/:id' element={<MailContent />} />
+        <Route path='/sent/:id' element={<SentContent />} />
       </Routes>
     </Fragment>
   )

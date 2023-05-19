@@ -1,0 +1,14 @@
+.mailContent {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(253, 251, 251);
+    padding: 8px;
+    margin-top: 50px;
+    margin-left: 10px;
+    width: 78%;
+    height: fit-content;
+  }
+
+  .mailContent, p {
+    font-weight: bold;
+  }

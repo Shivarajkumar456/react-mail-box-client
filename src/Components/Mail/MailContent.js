@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { mailActions } from '../../store/Mail';
 import Sidebar from '../Header/Sidebar';
+import './Content.css';
 
 const MailContent = () => {
     const { id } = useParams();
@@ -38,7 +39,7 @@ const MailContent = () => {
     return <>
         <div className='containers'>
             <Sidebar />
-            <div>
+            <div className='mailContent'>
                 <p>From: {pageMail[0].from}</p>
                 <p>Title: {pageMail[0].title}</p>
                 <p>Maessage: {pageMail[0].message}</p>

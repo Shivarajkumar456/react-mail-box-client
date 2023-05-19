@@ -16,6 +16,7 @@ const deleteMailHandler = async () => {
           method: "Delete",
       });
       const data = await res.json();
+      console.log(data);
   } catch (error) {
       console.log(error.message);
   }
@@ -26,7 +27,7 @@ if(props.toFrom === 'from'){
   <h1>Inbox</h1>
 </div>
 <div className='list'>
-<NavLink to={`/inbox/${props.mail.id}`}>
+<NavLink to={`/inbox/${props.mail.id}`} className={'textDec'}>
   <div className='symbolTo'>
     {!props.isRead && <div className='circle' />}
     <div className='to'>From: {fromName}</div>
@@ -40,7 +41,7 @@ if(props.toFrom === 'from'){
 }else if(props.toFrom === 'to') {
   return <>
   <div className='list'>
-  <NavLink to={`/sent/${props.mail.id}`}>
+  <NavLink to={`/sent/${props.mail.id}`} className={'textDec'}>
     <div className='symbolTo'>
       <div className='to'>To: {toName}</div>
       <div className='subject'>{props.mail.title}</div>
@@ -50,8 +51,6 @@ if(props.toFrom === 'from'){
       <button onClick={deleteMailHandler}>Delete</button>
     </div>
   </div></>
-}else {
-  return <h4>Not Valid Address!</h4>
 }
 }
 

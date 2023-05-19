@@ -8,12 +8,17 @@
     flex-direction: row;
     background-color: rgb(253, 251, 251);
     border-bottom: 1px solid gray;
-    padding: 5px;
+    border-radius: 50px;
+    padding: 6px;
     justify-content: space-between;
   }
   .list:hover {
     background-color: rgb(200, 217, 230);
     cursor: pointer;
+  }
+  .textDec{
+    text-decoration: none;
+    color: black;
   }
   .symbolTo {
     display: flex;
