@@ -1,7 +1,7 @@
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState, useEffect } from 'react';
 import { Editor } from 'react-draft-wysiwyg';
 import { EditorState } from 'draft-js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { mailActions } from '../../store/Mail';
 import Sidebar from '../Header/Sidebar';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -11,6 +11,9 @@ const MailHome = ()=> {
   const dispatch = useDispatch()
     const subject = useRef(null);
     const to = useRef(null);
+    const authemail = useSelector(state=> state.auth.email);
+    const changed = useSelector(state=>state.mail.changed);
+    const replaceEmail = authemail.replace(/[@ .]/g, '');
     const [editorState , setEditorState] = useState(()=> EditorState.createEmpty() );
     const editorHandler=(editorState)=>{
         setEditorState(editorState);
@@ -60,6 +63,49 @@ const MailHome = ()=> {
        subject.current.value = '';
        setEditorState(null)
      }
+
+     useEffect(() => {
+      let newdata = []
+      let count = 0;
+      async function fetchMails(){
+      try {
+        const res = await fetch(
+          `https://reactmailbox-7a108-default-rtdb.firebaseio.com/${replaceEmail}.json`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await res.json();
+        if (res.ok) {
+          
+          for (let key in data) {
+            newdata.push({ id: key, ...data[key] });
+            if(!data[key].isRead && data[key].to === email){
+              count++;
+            }
+          }
+          dispatch(
+          mailActions.replaceMails({
+              mailData : newdata,
+              count : count,
+              changed: changed
+          })
+          )
+  
+        } else {
+          throw data.error;
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    setInterval(()=>fetchMails(), 2000)
+    
+     }, [dispatch,replaceEmail, changed, email]);
+
 
     return (
         <Fragment>

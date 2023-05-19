@@ -64,6 +64,9 @@ const Inbox = ()=> {
     <div className='containers'>
       <Sidebar />
       <div className = 'inbox'>
+      <div className='heading'>
+            <h1>Inbox</h1>
+        </div>
         {mailItem.length>0?mailItem:<h4>No Inbox Mails</h4>}
       </div>
     </div>

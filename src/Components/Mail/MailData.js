@@ -23,9 +23,7 @@ const deleteMailHandler = async () => {
 }
 
 if(props.toFrom === 'from'){
-  return <><div className='heading'>
-  <h1>Inbox</h1>
-</div>
+  return <>
 <div className='list'>
 <NavLink to={`/inbox/${props.mail.id}`} className={'textDec'}>
   <div className='symbolTo'>
